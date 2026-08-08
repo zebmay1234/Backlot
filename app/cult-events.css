@@ -1,0 +1,43 @@
+.eventOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(10, 9, 8, .84);
+  backdrop-filter: blur(5px);
+}
+
+.eventOverlay > section {
+  width: min(520px, 100%);
+  padding: 34px;
+  border: 1px solid #d9aa48;
+  border-radius: 20px;
+  background: radial-gradient(circle at 50% 0, #3d2b18 0, #181713 48%, #10100e 100%);
+  box-shadow: 0 28px 90px #000, inset 0 1px rgba(255,255,255,.12);
+  color: #f2ede2;
+  text-align: center;
+}
+
+.eventOverlay small { color: #d9aa48; font-size: 8px; letter-spacing: .2em; }
+.eventOverlay h2 { margin: 10px 0; color: #f1d28f; font-size: 34px; }
+.eventOverlay p { margin: 0 auto 24px; max-width: 420px; color: #d8d0c1; line-height: 1.65; }
+.eventOverlay button { padding: 11px 18px; border: 1px solid #d9aa48; border-radius: 10px; background: #d9aa48; color: #17130d; font-weight: 700; }
+
+.cultBadge {
+  margin: 10px 0 -5px;
+  padding: 9px 12px;
+  border: 1px solid #d9aa48;
+  border-radius: 10px;
+  background: #241c12;
+  color: #f1d28f;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: .12em;
+}
+
+.loanOffers button:disabled {
+  cursor: not-allowed;
+  opacity: .45;
+}

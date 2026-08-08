@@ -1,0 +1,23 @@
+.writerRoom {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 8px;
+  margin: 12px 0;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #f8f2e7;
+}
+
+.writerRoom > span { display: flex; min-width: 0; flex-direction: column; }
+.writerRoom small { color: var(--muted); font-size: 7px; letter-spacing: .1em; }
+.writerRoom b { margin-top: 3px; font-size: 12px; }
+.writerRoom em { margin-top: 3px; color: var(--muted); font-size: 8px; font-style: normal; }
+.writerRoom button { margin: 0; padding: 8px 10px; white-space: nowrap; }
+.talentList > button em small { display: block; margin-top: 3px; color: var(--muted); font-size: 7px; font-style: normal; }
+
+@media (max-width: 620px) {
+  .writerRoom { grid-template-columns: 1fr 1fr; }
+  .writerRoom > span { grid-column: 1 / -1; }
+}
