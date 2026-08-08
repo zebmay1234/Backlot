@@ -47,8 +47,7 @@ button,input,select{border-radius:8px}.game nav button{border-radius:8px}.notice
 @media(prefers-reduced-motion:reduce){.game nav button{transition:none}.game nav button:hover{transform:none}}
 
 /* Backlot typography system: custom logo artwork and a unified Montserrat interface. */
-:root{--font-interface:var(--font-montserrat),"Helvetica Neue",Arial,sans-serif}
-body{--font-display:var(--font-montserrat),"Helvetica Neue",Arial,sans-serif}
+body{--font-interface:var(--font-montserrat,"Helvetica Neue"),Arial,sans-serif;--font-display:var(--font-montserrat,"Helvetica Neue"),Arial,sans-serif}
 body,button,input,select,textarea{font-family:var(--font-interface);font-weight:400}
 
 /* Major cinematic screen headings. */
