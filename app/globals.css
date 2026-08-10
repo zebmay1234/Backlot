@@ -85,3 +85,61 @@ body,button,input,select,textarea{font-family:var(--font-interface);font-weight:
 .talentGenres{display:flex!important;flex-wrap:wrap;gap:3px;margin-top:5px!important}.talentGenres>span{display:inline-flex;align-items:center;gap:4px;border:1px solid #ddd3c4;border-radius:999px;background:#faf7f0;padding:2px 5px;color:#625b52;font-size:6px}.talentGenres>span>i{width:7px;height:7px;flex:0 0 7px;border-radius:50%;background:var(--talent-genre);box-shadow:0 0 0 1px #0002}
 .legendTalent .avatar{background:#241d12;color:#f2d38b;box-shadow:0 0 0 2px #d4a23a55}.legendTalent>em{color:#8c5f09}
 @media(max-width:700px){.talentList>button{grid-template-columns:36px minmax(0,1fr) 38px 58px}.talentIdentity>b{align-items:flex-start;flex-direction:column;gap:3px}.legendBadge{font-size:5px}}
+
+/* Purpose-built phone layout: dense market, clear brand, thumb-safe turns. */
+@media(max-width:700px){
+  html{-webkit-text-size-adjust:100%}
+  body{overflow-x:hidden}
+  button{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+  .game>aside{position:relative;z-index:2;padding:10px 10px 12px;border-bottom-width:2px}
+  .logo{width:calc(100% + 20px);height:92px;margin:-10px -10px 8px;background-size:auto 116px;background-position:center 46%;border-bottom:1px solid #d4a23a44}
+  .game nav{position:relative;z-index:3;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px}
+  .game nav button{min-height:40px;padding:8px 7px;font-size:9px;line-height:1.15;letter-spacing:.02em;text-align:center}
+  .game nav button:hover{transform:none}
+  .game nav button b{float:none;margin-left:3px}
+  .game nav .newGameLink{grid-column:2/4;margin-top:0!important;border-top:0!important}
+  .content{padding:16px 8px calc(42px + env(safe-area-inset-bottom))}
+  .content>header{display:grid;grid-template-columns:1fr;gap:8px}
+  .content>header>div:first-child{width:100%}
+  .content h1{font-size:27px;line-height:1.05}
+  .content>header small{font-size:6px;letter-spacing:.07em}
+  .cash{display:flex;width:100%;flex-wrap:wrap;align-items:baseline;justify-content:space-between;text-align:left;font-size:7px}
+  .cash b{font-size:22px}
+  .cash .advance.top{position:static;z-index:auto;flex:0 0 100%;width:100%;min-height:48px;margin:7px 0 0;border-radius:12px;font-size:13px;letter-spacing:.02em;box-shadow:none}
+  .notice{margin:10px 0 12px;padding:10px 11px;font-size:9px}
+  .marketHead{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:9px}
+  .marketHead p{grid-column:1/-1;width:auto;margin:0 0 2px;font-size:8px;line-height:1.4}
+  .marketHead button{width:100%;min-height:38px;padding:7px 6px;font-size:8px}
+  .scriptGrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  .scriptGrid article{min-width:0;min-height:255px;padding:9px;border-radius:11px;box-shadow:0 7px 17px #4a392318}
+  .scriptGrid article:hover{transform:none}
+  .scriptHeader{min-height:66px;margin:-9px -9px 8px;padding:9px 9px 10px;border-radius:10px 10px 0 0}
+  .scriptHeader small{font-size:5.5px;letter-spacing:.08em}
+  .scriptHeader h2{margin-top:5px;font-size:15px;line-height:1.05}
+  .scriptGrid article>small{font-size:5.5px;line-height:1.35;letter-spacing:.04em}
+  .scriptGrid article>p{display:none}
+  .castCount{gap:5px;margin:8px 0 6px}
+  .castCount>b{font-size:20px}
+  .castCount>span{font-size:5.5px;letter-spacing:.04em}
+  .castCount small{font-size:5px}
+  .riskNote{margin:2px 0 7px;padding:5px 6px;border-left-width:2px}
+  .riskNote b{font-size:5.5px}
+  .riskNote span{display:none}
+  .package{gap:2px;margin:2px 0 7px;padding:6px}
+  .package strong,.package span{font-size:5.5px}
+  .meter{grid-template-columns:1fr;gap:3px;font-size:6px}
+  .meter i{height:4px}
+  .roles{max-height:24px;margin:7px 0;overflow:hidden;gap:3px}
+  .roles span{padding:2px 4px;font-size:5px;white-space:nowrap}
+  .roles span:nth-child(n+4){display:none}
+  .scriptGrid footer{gap:5px;padding-top:7px}
+  .scriptGrid footer strong{font-size:11px}
+  .scriptGrid footer button{min-height:34px;padding:6px 7px;font-size:7px;line-height:1.1}
+}
+
+@media(max-width:360px){
+  .game nav{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .game nav .newGameLink{grid-column:auto}
+  .scriptHeader h2{font-size:14px}
+  .scriptGrid article{min-height:245px}
+}
