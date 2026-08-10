@@ -1,7 +1,7 @@
-export const GENRES = ["Drama","Comedy","Action","Sci-Fi","Horror","Thriller","Romance","Crime","Fantasy","Art House"] as const;
+export const GENRES = ["Drama","Comedy","Action","Sci-Fi","Horror","Thriller","Romance","Crime","Fantasy","Art House","Documentary","Animation","Musical","Western","Family"] as const;
 export type Genre = typeof GENRES[number];
 
-export const GENRE_COLORS:Record<Genre,string>={"Drama":"#7d3040","Comedy":"#d4a23a","Action":"#a52b27","Sci-Fi":"#3f6687","Horror":"#29262d","Thriller":"#386664","Romance":"#ad6571","Crime":"#354252","Fantasy":"#69577f","Art House":"#737044"};
+export const GENRE_COLORS:Record<Genre,string>={"Drama":"#7d3040","Comedy":"#d4a23a","Action":"#a52b27","Sci-Fi":"#3f6687","Horror":"#29262d","Thriller":"#386664","Romance":"#ad6571","Crime":"#354252","Fantasy":"#69577f","Art House":"#737044","Documentary":"#47766e","Animation":"#7b5da7","Musical":"#b65d86","Western":"#9a633d","Family":"#4f7d9b"};
 
 // Prominent working performers are prioritized so the 390-person active pool does not
 // truncate major American and British comedy talent near the end of the master roster.
@@ -65,11 +65,16 @@ export const WRITER_NAMES = `Mara Voss|Elliot Crane|Nia Bell|Theo Mercer|Paloma 
 export const DP_NAMES = `Nico Vale|Mae Okada|Lucien Hart|Sana Idris|Owen Lux|Petra Voss|Ivo Mercer|Carmen Zhao|Theo Slate|Rina Bell|Sol Navarro|Marta Kline|Eli Frost|Nadia Park|Remy Pike|Alma Reed|Jonas Crane|Yara Moss|Vik Shah|Clara North|Milo Quinn|Ines Ford|Rafi Stone|Dara Cole|Leo Maren|Tessa Wu|Omar Finch|June Calder|Pia Shore|Noel Brooks|Mina Ellis|Ari Lane|Cleo Price|Hugo Grey|Lena Moon|Sam Vale|Iris King|Ezra Hart|Nia Lowe|Max Rivers|Sora Tate|Jules Chen|Asha Monroe|Finn Grant|Luca Bloom|Mara West|Zane Holloway|Eva Bennett|Kai Moreno|Rhea Byrd`.split("|");
 
 export const LOCATIONS = [
- {name:"Atlanta soundstages",cost:7,production:82,art:35},{name:"Los Angeles backlot",cost:15,production:90,art:45},
- {name:"New York City",cost:20,production:75,art:68},{name:"Vancouver",cost:10,production:88,art:52},
- {name:"London",cost:16,production:86,art:64},{name:"Prague",cost:8,production:78,art:76},
- {name:"New Zealand",cost:13,production:84,art:88},{name:"Morocco",cost:7,production:65,art:91},
- {name:"Iceland",cost:11,production:68,art:96},{name:"Romania",cost:5,production:70,art:74},
+ {name:"Atlanta soundstages",cost:7,production:82,art:35,infrastructure:92,rebate:.25,risk:8,reshoot:.78,buzz:2,genres:["Action","Comedy","Family"],description:"Reliable stages, deep crews and a powerful production rebate."},
+ {name:"Los Angeles backlot",cost:15,production:90,art:45,infrastructure:98,rebate:.08,risk:5,reshoot:.7,buzz:2,genres:["Drama","Comedy","Action"],description:"The safest schedule and cheapest reshoots, at a premium price."},
+ {name:"New York City",cost:20,production:75,art:68,infrastructure:78,rebate:.05,risk:22,reshoot:1.25,buzz:7,genres:["Crime","Drama","Romance","Comedy"],description:"Unmatched authenticity and publicity, with permits and street delays."},
+ {name:"Vancouver",cost:10,production:88,art:52,infrastructure:94,rebate:.28,risk:10,reshoot:.85,buzz:3,genres:["Sci-Fi","Thriller","Action","Family"],description:"Flexible locations, fast crews and one of the strongest rebates."},
+ {name:"London",cost:16,production:86,art:64,infrastructure:90,rebate:.2,risk:12,reshoot:1,buzz:6,genres:["Drama","Romance","Musical","Fantasy"],description:"Prestige crews and period-film credibility with dependable facilities."},
+ {name:"Prague",cost:8,production:78,art:76,infrastructure:82,rebate:.22,risk:15,reshoot:1.1,buzz:5,genres:["Fantasy","Horror","Thriller","Drama"],description:"Affordable old-world scale for fantasy, period and espionage work."},
+ {name:"New Zealand",cost:13,production:84,art:88,infrastructure:84,rebate:.2,risk:20,reshoot:1.35,buzz:8,genres:["Fantasy","Action","Family","Sci-Fi"],description:"Spectacular landscapes create event imagery but complicate returns."},
+ {name:"Morocco",cost:7,production:65,art:91,infrastructure:68,rebate:.18,risk:28,reshoot:1.45,buzz:7,genres:["Action","Western","Drama","Thriller"],description:"Exceptional scale and authenticity offset by heat and logistics risk."},
+ {name:"Iceland",cost:11,production:68,art:96,infrastructure:70,rebate:.25,risk:32,reshoot:1.6,buzz:9,genres:["Sci-Fi","Fantasy","Art House","Documentary"],description:"Singular imagery with the highest weather and reshoot exposure."},
+ {name:"Romania",cost:5,production:70,art:74,infrastructure:74,rebate:.35,risk:18,reshoot:1.15,buzz:4,genres:["Horror","Thriller","Fantasy","Crime"],description:"The lowest net cost and strong gothic production value."},
 ];
 
 export const FESTIVALS = [
@@ -80,5 +85,3 @@ export const FESTIVALS = [
 export const TITLES = ["A Map of Smoke","Neon Orchard","The Last Broadcast","Velvet Static","Saints of Mercury","Cold Meridian","A Minor Collision","The Quiet Animal","Glass Kingdom","After the Flood","Signal Fire","The Borrowed Face","Midnight Province","Salt in the Wound","Paper Astronauts"];
 
 export function hash(s:string){let h=2166136261;for(const c of s)h=Math.imul(h^c.charCodeAt(0),16777619);return Math.abs(h);}
-export function genresFor(name:string):Genre[]{const h=hash(name);return [GENRES[h%GENRES.length],GENRES[(Math.floor(h/11)+3)%GENRES.length]].filter((v,i,a)=>a.indexOf(v)===i) as Genre[];}
-export function ratingFor(name:string,legend=false){return Math.min(99,(legend?88:58)+(hash(name)% (legend?12:37)));}
