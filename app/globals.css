@@ -150,6 +150,16 @@ body,button,input,select,textarea{font-family:var(--font-interface);font-weight:
 .honors.nominations span{background:#e8edf0;color:#425466}
 .awardsEvent{background:radial-gradient(circle at 50% 30%,#a8752b66,#071218e8 58%)}
 .awardsEvent>section{border-top-color:#d4a23a}
+.awardsEvent>section.lottyResults{width:min(720px,100%);max-height:min(760px,88vh);overflow:auto;padding:26px}
+.lottyList{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:18px 0;text-align:left}
+.lottyList article{position:relative;display:flex;min-height:92px;flex-direction:column;justify-content:center;padding:13px 15px;border:1px solid #d4a23a55;border-radius:12px;background:#ffffff0b}
+.lottyList article:first-child{grid-column:1/-1}
+.lottyList article.studioWinner{border-color:#f1d28f;background:linear-gradient(135deg,#d4a23a30,#ffffff0b);box-shadow:inset 3px 0 #d4a23a}
+.lottyList small{color:#d9aa48;font-size:7px;letter-spacing:.13em}
+.lottyList b{margin:5px 0 3px;color:#f2ede2;font-size:14px}
+.lottyList span{color:#bdb5a7;font-size:9px}
+.lottyList em{position:absolute;right:10px;top:9px;border-radius:999px;background:#d4a23a;color:#17130d;padding:3px 6px;font-size:6px;font-style:normal;font-weight:800;letter-spacing:.08em}
+@media(max-width:620px){.awardsEvent>section.lottyResults{padding:16px}.lottyList{grid-template-columns:1fr}.lottyList article:first-child{grid-column:auto}.lottyList article{min-height:76px}.awardsEvent h2{font-size:27px}}
 
 .writerRoom{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:8px;align-items:center;margin:14px 0;padding:12px;background:#eee5d6;border-left:4px solid var(--gold);border-radius:10px}.writerRoom>span{display:flex;min-width:0;flex-direction:column}.writerRoom small{font-size:6px;letter-spacing:.1em;color:var(--muted)}.writerRoom b{margin:3px 0;font-size:12px}.writerRoom em{font-size:8px;color:var(--muted);font-style:normal}.writerRoom i{margin-top:6px;color:#8c1d1d;font-family:var(--font-interface);font-size:7px;font-style:normal;font-weight:700;letter-spacing:.08em}.writerRoom button{border:1px solid var(--line);background:#fffaf1;padding:9px;font-size:8px}.developmentTrouble{margin:-5px 0 12px;padding:9px 11px;border-radius:8px;background:#8c1d1d;color:#fff;font-size:8px;letter-spacing:.06em}
 .writerTierBadge{display:inline-block;margin-left:6px;border-radius:999px;background:#d4a23a22;color:#8c6218;padding:2px 5px;font-size:6px;font-style:normal;letter-spacing:.05em;text-transform:uppercase}
